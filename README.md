@@ -8,4 +8,5 @@
 python3 -m venv venv
 source {route to project root}/venv/bin/activate
 pip install -r requirements.txt
+python3 {route to project root}/main.py
 ```
