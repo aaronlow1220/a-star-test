@@ -1,6 +1,7 @@
 from typing import List, Tuple, Dict, Set
 import numpy as np
 from math import dist
+import timeit
 
 
 def create_node(
@@ -110,15 +111,24 @@ def find_path(
     return []
 
 
-grid = np.zeros((20, 20))
-
-# obstacles
-grid[5:15, 10] = 1  # Vertical wall
-grid[5, 5:15] = 1  # Horizontal wall
+grid = np.array(
+    [
+        [0, 1, 1, 0, 0, 0, 0, 0, 0, 0],
+        [1, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+        [0, 1, 1, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    ]
+)
 
 # Define start and goal positions
-start_pos = (2, 2)
-goal_pos = (18, 18)
+start_pos = (0, 0)
+goal_pos = (5, 7)
 
 path = find_path(grid, start_pos, goal_pos)
 if path:
